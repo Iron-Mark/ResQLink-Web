@@ -133,10 +133,28 @@ export function useScenarioPlayback(isActive: boolean): ScenarioPlaybackState {
 
       setElapsedSeconds(loopElapsed);
 
+      // Resolved-count updates happen OUTSIDE the setIncidents updater below.
+      // Updater functions must be pure: React 18 StrictMode double-invokes them
+      // in dev, which double-counted "Resolved Today". These derive purely from
+      // loopElapsed/allEvents, so they don't need the previous incident state.
+      if (loopElapsed === 0) {
+        setResolvedCount(0);
+      } else {
+        const resolvedThisTick = allEvents.filter(
+          (event) =>
+            event.atSecond === loopElapsed &&
+            event.type === "status_change" &&
+            "newStatus" in event &&
+            event.newStatus === "Resolved"
+        ).length;
+        if (resolvedThisTick > 0) {
+          setResolvedCount((c) => c + resolvedThisTick);
+        }
+      }
+
       setIncidents((prev) => {
         // On loop reset, clear everything
         if (loopElapsed === 0) {
-          setResolvedCount(0);
           return [];
         }
 
@@ -186,9 +204,6 @@ export function useScenarioPlayback(isActive: boolean): ScenarioPlaybackState {
                   }
                 : i
             );
-            if (event.newStatus === "Resolved") {
-              setResolvedCount((c) => c + 1);
-            }
           } else if (event.type === "responder_assign" && "responderCount" in event) {
             next = next.map((i) =>
               i.id === event.incidentId
