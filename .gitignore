@@ -6,3 +6,8 @@ node_modules
 build/
 vite-*.out.log
 vite-*.err.log
+
+# Vercel project link (contains org/project IDs)
+.vercel
+
+.vercel
