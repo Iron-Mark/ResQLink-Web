@@ -46,7 +46,7 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              onClick={() => window.open("https://web.resqlink.org/", "_blank")}
+              onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
               className="bg-[#e0eaff]/10 hover:bg-[#e0eaff]/20 text-[#e0eaff] border border-[#e0eaff]/30 hover:border-[#e0eaff]/60 shadow-xl transition-all duration-300 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
             >
               Open Web App
