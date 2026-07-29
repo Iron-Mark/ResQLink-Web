@@ -154,6 +154,14 @@ docker run -p 80:80 resqlink-web
 - CUIZON, Antoinette — QA Lead
 - SIAZON, Mark Angelo - Product Designer & Full-Stack Developer
 
+All four are equal copyright holders under the [LICENSE](LICENSE). Commit counts
+are not a measure of contribution — research, documentation and QA largely do not
+appear in `git log`.
+
+## License
+
+[MIT](LICENSE) © 2025-2026 the authors above.
+
 ---
 
-_Last updated: 2026-04-08_
+_Last updated: 2026-07-30_
