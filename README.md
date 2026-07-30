@@ -154,13 +154,16 @@ docker run -p 80:80 resqlink-web
 - CUIZON, Antoinette — QA Lead
 - SIAZON, Mark Angelo - Product Designer & Full-Stack Developer
 
-All four are equal copyright holders under the [LICENSE](LICENSE). Commit counts
-are not a measure of contribution — research, documentation and QA largely do not
-appear in `git log`.
+All four are equal copyright holders. Commit counts are not a measure of
+contribution — research, documentation and QA largely do not appear in `git log`.
 
 ## License
 
-[MIT](LICENSE) © 2025-2026 the authors above.
+**All rights reserved.** © 2025-2026 the authors above. See [LICENSE](LICENSE).
+
+This repository is public so the work can be read and referenced. That is not a
+grant of permission: no licence is given to use, copy, modify or redistribute
+it. If you want to use any of it, ask.
 
 ---
 

@@ -1,17 +1,26 @@
-MIT License
-
 Copyright (c) 2025-2026 Mary Antoinette Cuizon, Mark Angelo Siazon,
-Rallon Phillip Tenorio, and Jam Emmanuel Villarosa
+Rallon Phillip Tenorio, and Jam Emmanuel Villarosa.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This source code is published for viewing only, as a portfolio and reference
+artifact. No licence is granted.
+
+You may not use, copy, modify, merge, publish, distribute, sublicense, sell,
+or create derivative works from this software or any part of it, in source or
+binary form, without prior written permission from all four copyright holders
+named above.
+
+Public visibility is not permission. Nothing in this repository, its README,
+or the fact that it is hosted publicly should be read as a licence. The only
+rights third parties have are those conferred by GitHub's Terms of Service on
+public repositories (such as viewing and forking within GitHub itself) and
+those arising by operation of law, such as fair use or fair dealing.
+
+Third-party dependencies remain under their own licences, which this notice
+does not affect.
+
+To request permission, contact the copyright holders.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
