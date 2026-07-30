@@ -3,10 +3,24 @@
 ## Scope
 
 ResQLink-Web — public landing page + interactive LGU dashboard demo for the
-ResQLink emergency response platform (live at resqlink.org). Part of the
-`ResQLink - Workspace` monorepo, archived under `zStale-Projects`. On branch
-`main`. Workspace-wide policy lives in `C:\Codes Local\AGENTS.md` — not
-duplicated here.
+ResQLink emergency response platform, live at **resqlink-ph.vercel.app**. Part of
+the `ResQLink - Workspace` monorepo, kept under `zStale-Projects`. Workspace-wide
+policy lives in `C:\Codes Local\AGENTS.md` — not duplicated here.
+
+> Corrections, 2026-07-30: this said "live at resqlink.org", a domain the team has
+> never owned and which does not resolve, and "On branch `main`" — the working
+> branch is `chore/web-demo-deploy-prep`.
+
+## Licence — this repo is PUBLIC
+
+**All rights reserved.** MIT was applied on 2026-07-30 and reverted the same day;
+`package.json` declares `UNLICENSED`. The source is public so it can be read as a
+portfolio artifact — that is **not** a grant of permission. Do not reintroduce a
+permissive licence: it is a four-author decision. Note that MIT was briefly
+published here, so anyone who took a copy under those terms keeps them.
+
+This repo has **no** AGPL exposure — it does not touch `ultralytics_yolo`. That
+constraint applies to ResQLink-App only.
 
 ## Environment / Stack
 

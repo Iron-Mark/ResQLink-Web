@@ -2,7 +2,13 @@
 
 Public-facing landing page for the **ResQLink** emergency response platform, with an interactive LGU command dashboard demo.
 
-**Live site:** [resqlink.org](https://resqlink.org)
+**Live site:** [resqlink-ph.vercel.app](https://resqlink-ph.vercel.app)
+
+> This previously advertised `resqlink.org` — a domain the team has never owned and
+> which does not resolve. The Flutter web app lives separately at
+> [resqlink-app.vercel.app](https://resqlink-app.vercel.app). Neither Vercel project
+> is git-connected on purpose (`vercel link` defaults to the wrong upstream), so
+> deploys are manual.
 
 ## Stack
 
