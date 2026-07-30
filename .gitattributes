@@ -1,0 +1,34 @@
+# Line-ending policy. Declared explicitly so behaviour does not depend on each
+# machine's core.autocrlf — the Windows dev machine has it enabled, which makes
+# git report files as modified when only their line endings differ. Any tool that
+# rewrites a file in place then produces a phantom diff.
+#
+# text=auto stores text as LF in the repository and converts on checkout.
+* text=auto
+
+# Shell scripts must stay LF even on Windows: these run under Git Bash, and a
+# CRLF shebang fails with a bare "not found" naming the interpreter rather than
+# the line ending.
+*.sh text eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Lockfiles: keep diffs honest, never convert.
+package-lock.json -diff
+bun.lockb binary
+
+# Binary — never convert, never diff textually.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.zip binary
