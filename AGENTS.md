@@ -75,3 +75,7 @@ constraint applies to ResQLink-App only.
 - No known blockers.
 
 Last verified: 2026-07-22 (workspace AGENTS.md refresh pass)
+
+> **Handoff:** the durable project record lives at
+> `../ResQLink-App/docs/HANDOFF.md` — current state, what ships unproven, the
+> irreversible VPS mistake, and the open decisions. Read it before starting work.
