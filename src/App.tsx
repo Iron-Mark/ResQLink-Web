@@ -6,7 +6,6 @@ import { PlatformOverview } from "./components/PlatformOverview";
 import { SDGSection } from "./components/SDGSection";
 import { DownloadAppSection } from "./components/DownloadAppSection";
 import AchievementSection from "./components/Achievements";
-import { DashboardPreview } from "./components/DashboardPreview";
 import { useEffect } from "react";
 import { updateSEO, DEFAULT_SEO } from "./utils/seo";
 import { DemoModeProvider } from "./context/DemoModeContext";
@@ -31,9 +30,6 @@ export default function App() {
 
       {/* AI Triage Flow */}
       <AITriageFlow />
-
-      {/* LGU Command Dashboard Preview with Demo Mode */}
-      <DashboardPreview />
 
       {/* Platform Overview */}
       <section id="platforms">
