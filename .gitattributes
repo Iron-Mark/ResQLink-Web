@@ -1,0 +1,22 @@
+# Normalize text files in the repository while keeping platform-specific scripts usable.
+* text=auto
+
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Keep the npm lockfile stable and reviewable across platforms.
+package-lock.json text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.zip binary

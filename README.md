@@ -2,7 +2,11 @@
 
 Public-facing landing page for the **ResQLink** emergency response platform, with an interactive LGU command dashboard demo.
 
-**Live site:** [resqlink.org](https://resqlink.org)
+**Live site:** [resqlink-ph.vercel.app](https://resqlink-ph.vercel.app)
+
+The former `resqlink.org` deployment does not currently resolve. The separate
+Flutter web application is available at
+[resqlink-app.vercel.app](https://resqlink-app.vercel.app).
 
 ## Stack
 
@@ -93,6 +97,7 @@ src/
     └── *.jpg, *.png            Achievement section photos, InfoTech logo
 
 public/
+├── resqlink-icon.png           Public favicon and social preview image
 ├── robots.txt                  Crawl directives + sitemap reference
 ├── sitemap.xml                 2 URLs (/, /terms-and-conditions)
 ├── .well-known/assetlinks.json Android deep link verification
@@ -154,6 +159,16 @@ docker run -p 80:80 resqlink-web
 - CUIZON, Antoinette — QA Lead
 - SIAZON, Mark Angelo - Product Designer & Full-Stack Developer
 
+All four are equal copyright holders. Commit counts are not a measure of
+contribution; research, documentation, and QA may not appear in `git log`.
+
+## License
+
+**All rights reserved.** © 2025-2026 the authors above. See [LICENSE](LICENSE).
+
+This repository is public so the work can be read and referenced. That is not
+a grant of permission to use, copy, modify, or redistribute it.
+
 ---
 
-_Last updated: 2026-04-08_
+_Last updated: 2026-08-19_
