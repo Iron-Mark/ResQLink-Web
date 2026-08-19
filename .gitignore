@@ -6,3 +6,4 @@ node_modules
 build/
 vite-*.out.log
 vite-*.err.log
+.vercel/

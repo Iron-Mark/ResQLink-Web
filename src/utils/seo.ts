@@ -22,8 +22,10 @@ export const updateSEO = (config: SEOConfig) => {
     title,
     description,
     keywords,
-    image = "https://resqlink.org/og-image.png",
-    url = typeof window !== "undefined" ? window.location.href : "https://resqlink.org",
+    image = "https://resqlink-ph.vercel.app/resqlink-icon.png",
+    url = typeof window !== "undefined"
+      ? window.location.href
+      : "https://resqlink-ph.vercel.app",
     type = "website",
     author = "ResQLink",
   } = config;

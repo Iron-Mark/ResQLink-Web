@@ -108,7 +108,7 @@ export function Navigation() {
             <Button
               size="sm"
               className="bg-transparent text-[#e0eaff]/70 border border-[#e0eaff]/20 hover:text-[#e0eaff] hover:border-[#e0eaff]/50 hover:bg-transparent rounded-full px-5 shadow-none cursor-pointer"
-              onClick={() => window.open("https://web.resqlink.org/", "_blank")}
+              onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
             >
               <Monitor className="h-4 w-4 mr-2" />
               Open Web App
@@ -187,7 +187,7 @@ export function Navigation() {
                 variant="outline"
                 size="sm"
                 className="w-full text-[#e0eaff] bg-[#e0eaff]/10 border-[#e0eaff]/30 hover:bg-[#e0eaff]/20 cursor-pointer"
-                onClick={() => window.open("https://web.resqlink.org/", "_blank")}
+                onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
               >
                 <Monitor className="h-4 w-4 mr-1" />
                 Open Web App
