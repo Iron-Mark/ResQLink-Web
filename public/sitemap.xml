@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://resqlink.org/</loc>
+    <loc>https://resqlink-ph.vercel.app/</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://resqlink.org/src/assets/logos/resqlink-android-icon-adaptive.png</image:loc>
+      <image:loc>https://resqlink-ph.vercel.app/resqlink-icon.png</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://resqlink.org/terms-and-conditions/</loc>
+    <loc>https://resqlink-ph.vercel.app/terms-and-conditions/</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

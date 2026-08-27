@@ -16,4 +16,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://resqlink.org/sitemap.xml
+Sitemap: https://resqlink-ph.vercel.app/sitemap.xml

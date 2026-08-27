@@ -82,7 +82,7 @@ export function DownloadAppSection() {
 
               {/* Web app button */}
               <Button
-                onClick={() => window.open("https://web.resqlink.org/", "_blank")}
+                onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
                 className="w-full bg-[#e0eaff]/10 hover:bg-[#e0eaff]/20 text-[#e0eaff] border border-[#e0eaff]/30 hover:border-[#e0eaff]/60 shadow-xl transition-all duration-300 px-12 py-6 text-lg rounded-xl font-semibold backdrop-blur-sm"
               >
                 <Monitor className="h-6 w-6 mr-3" />

@@ -40,7 +40,25 @@ export interface ScenarioPlaybackState {
   resources: ResourceEntry[];
 }
 
+export interface ScenarioTimelineEvent {
+  atSecond: number;
+  type: string;
+  newStatus?: string;
+}
+
 const TICK_INTERVAL_MS = 1000;
+
+export function countResolvedEventsAtSecond(
+  events: readonly ScenarioTimelineEvent[],
+  second: number
+): number {
+  return events.filter(
+    (event) =>
+      event.atSecond === second &&
+      event.type === "status_change" &&
+      event.newStatus === "Resolved"
+  ).length;
+}
 
 function formatAgeLabel(seconds: number): string {
   if (seconds < 60) return "just now";
@@ -133,10 +151,23 @@ export function useScenarioPlayback(isActive: boolean): ScenarioPlaybackState {
 
       setElapsedSeconds(loopElapsed);
 
+      // Keep state updaters pure. React StrictMode can invoke an updater more
+      // than once in development, so resolved totals are derived independently.
+      if (loopElapsed === 0) {
+        setResolvedCount(0);
+      } else {
+        const resolvedThisTick = countResolvedEventsAtSecond(
+          allEvents,
+          loopElapsed
+        );
+        if (resolvedThisTick > 0) {
+          setResolvedCount((count) => count + resolvedThisTick);
+        }
+      }
+
       setIncidents((prev) => {
         // On loop reset, clear everything
         if (loopElapsed === 0) {
-          setResolvedCount(0);
           return [];
         }
 
@@ -186,9 +217,6 @@ export function useScenarioPlayback(isActive: boolean): ScenarioPlaybackState {
                   }
                 : i
             );
-            if (event.newStatus === "Resolved") {
-              setResolvedCount((c) => c + 1);
-            }
           } else if (event.type === "responder_assign" && "responderCount" in event) {
             next = next.map((i) =>
               i.id === event.incidentId

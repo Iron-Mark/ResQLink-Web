@@ -145,11 +145,12 @@ export function AITriageFlow() {
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-[#e0eaff]/20 rounded-3xl p-8 max-w-4xl mx-auto">
             <Brain className="h-10 w-10 text-purple-400 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-[#fefdf5] mb-3">
-              Continuous Learning &amp; Optimization
+              Designed to Improve Over Time
             </h3>
             <p className="text-[#e0eaff]/65 leading-relaxed max-w-2xl mx-auto">
-              Our AI pipeline continuously learns from response outcomes — improving triage accuracy,
-              reducing dispatch latency, and adapting to local disaster patterns over time.
+              The triage pipeline is built so response outcomes can be fed back into it — a roadmap
+              item aimed at sharpening triage accuracy, reducing dispatch latency, and adapting to
+              local disaster patterns.
             </p>
           </div>
         </div>
