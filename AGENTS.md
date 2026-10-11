@@ -2,16 +2,19 @@
 
 ## Scope
 
-ResQLink-Web — public landing page + interactive LGU dashboard demo for the
-ResQLink emergency response platform, live at **resqlink-ph.vercel.app**. Part of
-the `ResQLink - Workspace` monorepo, kept under `zStale-Projects`. Workspace-wide
-policy lives in `C:\Codes Local\AGENTS.md` — not duplicated here.
+## Build, Test, and Development Commands
+- `npm install`: install project dependencies.
+- `npm run dev`: start the Vite development server.
+- `npm run build`: create a production build.
+- `npm test`: run the Vitest unit suite once.
+- `npm run check`: run tests followed by the production build.
 
 > Corrections, 2026-07-30: this said "live at resqlink.org", a domain the team has
 > never owned and which does not resolve, and "On branch `main`" — the working
 > branch is `chore/web-demo-deploy-prep`.
 
-## Licence — this repo is PUBLIC
+## Testing Guidelines
+Vitest is configured for unit tests. Keep focused tests next to the module under test using the `*.test.ts` or `*.test.tsx` suffix, and run `npm run check` before opening a PR. For UI changes, include manual verification notes for desktop and mobile layouts.
 
 **All rights reserved.** MIT was applied on 2026-07-30 and reverted the same day;
 `package.json` declares `UNLICENSED`. The source is public so it can be read as a

@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-br from-[#161613] via-[#1a1a17] to-[#0a0a08] overflow-hidden"
+      className="relative bg-gradient-to-br from-[#161613] via-[#1a1a17] to-[#0a0a08] overflow-hidden"
     >
       {/* Gradient Orbs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
