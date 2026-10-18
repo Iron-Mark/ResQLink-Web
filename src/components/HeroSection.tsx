@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { Download, Zap, Shield, Globe, Monitor } from "lucide-react";
+import { Zap, Shield, Globe, Monitor } from "lucide-react";
+import { WEB_APP_URL } from "../utils/availability";
 
 export function HeroSection() {
   return (
@@ -34,25 +34,28 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
             <Button
               size="lg"
-              onClick={() =>
-                document
-                  .getElementById("download")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              asChild
               className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-2xl hover:shadow-red-500/25 transition-all duration-300 px-8 py-4 text-lg rounded-2xl"
             >
-              Download App
-              <Download className="h-5 w-5 ml-2" />
+              <a href="#dashboard">Explore Simulated Demo</a>
             </Button>
             <Button
               size="lg"
-              onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
+              asChild
               className="bg-[#e0eaff]/10 hover:bg-[#e0eaff]/20 text-[#e0eaff] border border-[#e0eaff]/30 hover:border-[#e0eaff]/60 shadow-xl transition-all duration-300 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
             >
-              Open Web App
-              <Monitor className="h-5 w-5 ml-2" />
+              <a href={WEB_APP_URL} target="_blank" rel="noopener noreferrer">
+                Open Web App
+                <Monitor className="h-5 w-5 ml-2" />
+              </a>
             </Button>
           </div>
+
+          <p className="text-[#e0eaff]/70 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Portfolio demonstration with simulated data. Android releases and
+            online emergency-response services are currently unavailable.
+            For real emergencies, contact 911 or your local responders.
+          </p>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">

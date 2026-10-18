@@ -15,9 +15,8 @@
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 
-# Lockfiles: keep diffs honest, never convert.
-package-lock.json -diff
-bun.lockb binary
+# Keep the npm lockfile stable and reviewable across platforms.
+package-lock.json text eol=lf
 
 # Binary — never convert, never diff textually.
 *.png binary

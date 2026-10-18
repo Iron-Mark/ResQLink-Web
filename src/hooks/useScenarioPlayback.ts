@@ -42,6 +42,24 @@ export interface ScenarioPlaybackState {
 
 const TICK_INTERVAL_MS = 1000;
 
+export interface ScenarioTimelineEvent {
+  atSecond: number;
+  type: string;
+  newStatus?: string;
+}
+
+export function countResolvedEventsAtSecond(
+  events: readonly ScenarioTimelineEvent[],
+  second: number
+): number {
+  return events.filter(
+    (event) =>
+      event.atSecond === second &&
+      event.type === "status_change" &&
+      event.newStatus === "Resolved"
+  ).length;
+}
+
 function formatAgeLabel(seconds: number): string {
   if (seconds < 60) return "just now";
   if (seconds < 3600) return `${Math.floor(seconds / 60)} min ago`;
@@ -140,13 +158,7 @@ export function useScenarioPlayback(isActive: boolean): ScenarioPlaybackState {
       if (loopElapsed === 0) {
         setResolvedCount(0);
       } else {
-        const resolvedThisTick = allEvents.filter(
-          (event) =>
-            event.atSecond === loopElapsed &&
-            event.type === "status_change" &&
-            "newStatus" in event &&
-            event.newStatus === "Resolved"
-        ).length;
+        const resolvedThisTick = countResolvedEventsAtSecond(allEvents, loopElapsed);
         if (resolvedThisTick > 0) {
           setResolvedCount((c) => c + resolvedThisTick);
         }
