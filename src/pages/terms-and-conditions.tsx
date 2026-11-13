@@ -36,6 +36,11 @@ export default function TermsAndConditions() {
           </header>
 
           <article className="prose prose-invert max-w-none text-base leading-relaxed">
+            <p className="p-4 border border-[#e0eaff]/20 rounded-xl mb-6">
+              Archived thesis beta terms. This portfolio site currently offers
+              no waitlist enrollment or public Android release. Its dashboard
+              demo uses simulated data and cannot request emergency assistance.
+            </p>
             <p>
               By submitting your email address to join the waitlist for this
               application ("the App"), you agree to be bound by the following

@@ -1,42 +1,13 @@
-# run.ps1 for ResQLink-Web
-# Usage:
-#   .\run.ps1              # npm run dev
-#   .\run.ps1 -Mode dev    # explicit dev
-#   .\run.ps1 -Mode release # build production bundle
-#   .\run.ps1 -Mode preview # npm run preview
-
+# Usage: .\run.ps1 [-Mode dev|release|preview] [-NpmArgs @('--host', '127.0.0.1')]
 param(
-    [ValidateSet("dev","release","prod","build","preview")]
-    [string]$Mode = "dev",
+    [ValidateSet('dev', 'release', 'prod', 'build', 'preview')]
+    [string]$Mode = 'dev',
     [string[]]$NpmArgs
 )
 
-$scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-Set-Location $scriptRoot
+Set-Location -LiteralPath $PSScriptRoot
 
-if (-not (Test-Path ".env")) {
-    Write-Error "Missing .env. Copy .env.example and fill in your credentials."
-    exit 1
-}
-
-switch ($Mode) {
-    "dev" {
-        npm run dev @NpmArgs
-        exit $LASTEXITCODE
-    }
-    "preview" {
-        npm run preview @NpmArgs
-        exit $LASTEXITCODE
-    }
-    { $_ -in "release","prod","build" } {
-        Write-Host "🚀 npm run build" -ForegroundColor Yellow
-        npm run build
-        Write-Host "🏁 Web production build complete." -ForegroundColor Green
-        exit $LASTEXITCODE
-    }
-    default {
-        Write-Host "➡️  npm run $Mode $($NpmArgs -join ' ')" -ForegroundColor Yellow
-        npm run $Mode @NpmArgs
-        exit $LASTEXITCODE
-    }
-}
+# This static portfolio and its simulated demo do not require .env.
+$npmScript = if ($Mode -in 'release', 'prod', 'build') { 'build' } else { $Mode }
+npm run $npmScript -- @NpmArgs
+exit $LASTEXITCODE
