@@ -4,7 +4,8 @@ import { FeaturesShowcase } from "./components/FeaturesShowcase";
 import { AITriageFlow } from "./components/AITriageFlow";
 import { PlatformOverview } from "./components/PlatformOverview";
 import { SDGSection } from "./components/SDGSection";
-import { DownloadAppSection } from "./components/DownloadAppSection";
+import { AppAvailabilitySection } from "./components/AppAvailabilitySection";
+import { DashboardPreview } from "./components/DashboardPreview";
 import AchievementSection from "./components/Achievements";
 import { useEffect } from "react";
 import { updateSEO, DEFAULT_SEO } from "./utils/seo";
@@ -31,6 +32,9 @@ export default function App() {
       {/* AI Triage Flow */}
       <AITriageFlow />
 
+      {/* Standalone demonstration: scenario data only, no backend. */}
+      <DashboardPreview />
+
       {/* Platform Overview */}
       <section id="platforms">
         <PlatformOverview />
@@ -41,8 +45,7 @@ export default function App() {
         <SDGSection />
       </section>
 
-      {/* Download App Section */}
-      <DownloadAppSection />
+      <AppAvailabilitySection />
 
       {/* Contact Section */}
       <section
@@ -159,9 +162,9 @@ export default function App() {
                 <span className="hover:text-[#e0eaff]/70 transition-colors duration-300 cursor-pointer">
                   Privacy Policy
                 </span>
-                <span className="hover:text-[#e0eaff]/70 transition-colors duration-300 cursor-pointer">
-                  Terms and Conditions
-                </span>
+                <a href="/terms-and-conditions" className="hover:text-[#e0eaff]/70 transition-colors duration-300">
+                  Archived Beta Terms
+                </a>
                 <span className="hover:text-[#e0eaff]/70 transition-colors duration-300 cursor-pointer">
                   Data Security
                 </span>

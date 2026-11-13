@@ -217,7 +217,7 @@ export function DashboardPreview() {
               }`}
             >
               <FlaskConical className="h-4 w-4" />
-              {isDemoActive ? "Exit Demo Simulation" : "Try Live Demo Simulation"}
+              {isDemoActive ? "Exit Demo Simulation" : "Start Simulated Demo"}
             </button>
           </div>
         </div>
