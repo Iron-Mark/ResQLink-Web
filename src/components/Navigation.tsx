@@ -1,5 +1,4 @@
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import {
   Menu,
   X,
@@ -7,38 +6,12 @@ import {
   Phone,
   Monitor,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import resqLinkLogo from '../assets/logos/resqlink-android-icon-adaptive.png';
+import { WEB_APP_URL } from "../utils/availability";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "features", "platforms", "sdg", "waitlist"];
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { href: "#hero", label: "Home", id: "hero" },
-    { href: "#features", label: "Features", id: "features" },
-    { href: "#platforms", label: "Platforms", id: "platforms" },
-    { href: "#sdg", label: "SDG Impact", id: "sdg" },
-    { href: "#waitlist", label: "Join Waitlist", id: "waitlist" },
-  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a08]/80 backdrop-blur-xl border-b border-[#e0eaff]/5">
@@ -67,38 +40,38 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#hero"
+              href="/#hero"
               className="text-[#fefdf5] hover:text-[#e0eaff] transition-all duration-300 relative group"
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0eaff] group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href="#features"
+              href="/#features"
               className="text-[#fefdf5] hover:text-[#e0eaff] transition-all duration-300 relative group"
             >
               Features
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0eaff] group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href="#platforms"
+              href="/#platforms"
               className="text-[#fefdf5] hover:text-[#e0eaff] transition-all duration-300 relative group"
             >
               Platforms
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0eaff] group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href="#sdg"
+              href="/#dashboard"
               className="text-[#fefdf5] hover:text-[#e0eaff] transition-all duration-300 relative group"
             >
-              SDG Impact
+              Demo
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0eaff] group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href="#download"
+              href="/#availability"
               className="text-[#fefdf5] hover:text-[#e0eaff] transition-all duration-300 relative group"
             >
-              Download App
+              Availability
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0eaff] group-hover:w-full transition-all duration-300"></span>
             </a>
           </div>
@@ -108,10 +81,12 @@ export function Navigation() {
             <Button
               size="sm"
               className="bg-transparent text-[#e0eaff]/70 border border-[#e0eaff]/20 hover:text-[#e0eaff] hover:border-[#e0eaff]/50 hover:bg-transparent rounded-full px-5 shadow-none cursor-pointer"
-              onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
+              asChild
             >
-              <Monitor className="h-4 w-4 mr-2" />
-              Open Web App
+              <a href={WEB_APP_URL} target="_blank" rel="noopener noreferrer">
+                <Monitor className="h-4 w-4 mr-2" />
+                Open Web App
+              </a>
             </Button>
 
             <Button
@@ -135,6 +110,9 @@ export function Navigation() {
               variant="outline"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
               className="text-[#fefdf5] bg-transparent border-[#e0eaff]/30 hover:bg-[#e0eaff]/10 hover:text-[#fefdf5]"
             >
               {isMenuOpen ? (
@@ -149,37 +127,39 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#161613]/98 backdrop-blur-md border-t border-[#e0eaff]/10">
-          <div className="px-4 py-6 space-y-4">
+        <div id="mobile-navigation" className="md:hidden bg-[#161613]/98 backdrop-blur-md border-t border-[#e0eaff]/10">
+          <div className="px-4 py-6 space-y-4" onClick={(event) => {
+            if ((event.target as HTMLElement).closest("a")) setIsMenuOpen(false);
+          }}>
             <a
-              href="#hero"
+              href="/#hero"
               className="block text-[#fefdf5] hover:text-[#e0eaff] py-2 transition-colors duration-300"
             >
               Home
             </a>
             <a
-              href="#features"
+              href="/#features"
               className="block text-[#fefdf5] hover:text-[#e0eaff] py-2 transition-colors duration-300"
             >
               Features
             </a>
             <a
-              href="#platforms"
+              href="/#platforms"
               className="block text-[#fefdf5] hover:text-[#e0eaff] py-2 transition-colors duration-300"
             >
               Platforms
             </a>
             <a
-              href="#sdg"
+              href="/#dashboard"
               className="block text-[#fefdf5] hover:text-[#e0eaff] py-2 transition-colors duration-300"
             >
-              SDG Impact
+              Demo
             </a>
             <a
-              href="#download"
+              href="/#availability"
               className="block text-[#fefdf5] hover:text-[#e0eaff] py-2 transition-colors duration-300"
             >
-              Download App
+              Availability
             </a>
 
             <div className="pt-4 border-t border-[#e0eaff]/10 space-y-2">
@@ -187,14 +167,15 @@ export function Navigation() {
                 variant="outline"
                 size="sm"
                 className="w-full text-[#e0eaff] bg-[#e0eaff]/10 border-[#e0eaff]/30 hover:bg-[#e0eaff]/20 cursor-pointer"
-                onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
+                asChild
               >
-                <Monitor className="h-4 w-4 mr-1" />
-                Open Web App
+                <a href={WEB_APP_URL} target="_blank" rel="noopener noreferrer">
+                  <Monitor className="h-4 w-4 mr-1" />
+                  Open Web App
+                </a>
               </Button>
-              <Button className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-lg cursor-pointer">
-                <Phone className="h-4 w-4 mr-1" />
-                Emergency Hotline
+              <Button asChild className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-lg cursor-pointer">
+                <a href="tel:911"><Phone className="h-4 w-4 mr-1" />Emergency Hotline</a>
               </Button>
             </div>
           </div>

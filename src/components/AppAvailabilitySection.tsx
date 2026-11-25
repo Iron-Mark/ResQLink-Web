@@ -1,7 +1,6 @@
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import {
-  Download,
   Smartphone,
   Shield,
   Zap,
@@ -9,6 +8,7 @@ import {
   ArrowRight,
   Monitor,
 } from "lucide-react";
+import { AVAILABILITY, WEB_APP_URL } from "../utils/availability";
 
 const features = [
   {
@@ -28,10 +28,10 @@ const features = [
   },
 ];
 
-export function DownloadAppSection() {
+export function AppAvailabilitySection() {
   return (
     <section
-      id="download"
+      id="availability"
       className="py-32 bg-gradient-to-br from-[#0a0a08] via-[#161613] to-[#1a1a17] relative"
     >
       {/* Background decorations */}
@@ -41,67 +41,49 @@ export function DownloadAppSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge className="mb-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-[#e0eaff] border-[#e0eaff]/30 backdrop-blur-sm px-6 py-3">
-            <Download className="h-4 w-4 mr-2" />
-            Download the App
+            <Smartphone className="h-4 w-4 mr-2" />
+            Project Availability
           </Badge>
           <h2 className="text-5xl md:text-6xl font-bold text-[#fefdf5] mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-[#fefdf5] to-[#e0eaff] bg-clip-text text-transparent">
-              Get ResQLink Now
+              Explore ResQLink
             </span>
           </h2>
           <p className="text-xl text-[#e0eaff]/70 max-w-3xl mx-auto leading-relaxed">
-            Download ResQLink and be prepared for when disaster strikes.
-            Available on Android devices.
+            {AVAILABILITY.androidDetail} Explore the portfolio demo to see the
+            platform's response-coordination concepts.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Download CTA */}
+          {/* Availability and portfolio links */}
           <div className="text-center lg:text-left flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              {/* Download APK button */}
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse pointer-events-none"></div>
-                <Button
-                  onClick={() =>
-                    window.open(
-                      "https://drive.google.com/open?id=1-dKhWDNAa9fW0pK6UyLdinbitGvq-Px3&usp=drive_fs",
-                      "_blank"
-                    )
-                  }
-                  className="relative w-full bg-gradient-to-r from-red-500 via-blue-500 to-purple-500 hover:from-red-600 hover:via-blue-600 hover:to-purple-600 text-white border-0 shadow-2xl hover:shadow-red-500/25 transition-all duration-500 px-12 py-8 text-2xl rounded-xl group-hover:scale-105 transform font-bold tracking-wide overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <div className="relative z-10 flex items-center justify-center gap-4">
-                    <Smartphone className="h-8 w-8 group-hover:rotate-12 transition-transform duration-300" />
-                    <span>Download for Android</span>
-                    <ArrowRight className="h-8 w-8 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-                </Button>
+              <div className="p-6 bg-[#e0eaff]/5 border border-[#e0eaff]/20 rounded-xl">
+                <h3 className="text-xl font-semibold text-[#fefdf5] mb-3">
+                  {AVAILABILITY.android}
+                </h3>
+                <p className="text-[#e0eaff]/80 leading-relaxed">{AVAILABILITY.online}</p>
               </div>
-
-              {/* Web app button */}
               <Button
-                onClick={() => window.open("https://resqlink-app.vercel.app/", "_blank")}
+                asChild
                 className="w-full bg-[#e0eaff]/10 hover:bg-[#e0eaff]/20 text-[#e0eaff] border border-[#e0eaff]/30 hover:border-[#e0eaff]/60 shadow-xl transition-all duration-300 px-12 py-6 text-lg rounded-xl font-semibold backdrop-blur-sm"
               >
-                <Monitor className="h-6 w-6 mr-3" />
-                Open Web App
-                <ArrowRight className="h-5 w-5 ml-3" />
+                <a href={WEB_APP_URL} target="_blank" rel="noopener noreferrer">
+                  <Monitor className="h-6 w-6 mr-3" />
+                  Open Web App
+                  <ArrowRight className="h-5 w-5 ml-3" />
+                </a>
+              </Button>
+              <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl">
+                <a href="#dashboard">Explore Simulated Demo</a>
               </Button>
             </div>
 
             {/* Supporting text */}
             <p className="text-[#e0eaff]/80 text-lg leading-relaxed text-center">
-              Free to download. By installing, you agree to our{" "}
-              <a
-                href="https://docs.google.com/document/d/1bHPoCklvACR09gyAlMIzFnG7lGe79Iw53ui-Lj3SV4g/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline font-bold decoration-white"
-              >
-                Terms &amp; Services.
-              </a>
+              {AVAILABILITY.demo} For a real emergency, contact 911 or your local
+              emergency responders.
             </p>
           </div>
 
@@ -110,7 +92,7 @@ export function DownloadAppSection() {
             <div>
               <h3 className="text-3xl font-bold text-[#fefdf5] mb-6">
                 <span className="bg-gradient-to-r from-[#fefdf5] to-[#e0eaff] bg-clip-text text-transparent">
-                  What You Get
+                  Platform Concepts
                 </span>
               </h3>
               <div className="space-y-6">

@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repo is a Vite + React + TypeScript frontend. Main app files are `src/main.tsx` and `src/App.tsx`. UI code is organized under `src/components/`, `src/pages/`, `src/styles/`, and `src/utils/`; images/assets are in `src/assets/` and static public files in `public/`. Build output goes to `build/`.
+This repo is a Vite (`6.4.6`) + React (`^18.3.1`) + TypeScript + Tailwind CSS v4 frontend. Main app files are `src/main.tsx` and `src/App.tsx`. UI code is organized under `src/components/`, `src/pages/`, `src/styles/`, and `src/utils/`; images/assets are in `src/assets/` and static public files in `public/`. Build output goes to `build/`, with container/static hosting support in `Dockerfile`, `nginx.conf`, `vercel.json`, `run.sh`, and `run.ps1`.
 
 ## Build, Test, and Development Commands
 - `npm install`: install project dependencies.
@@ -21,5 +21,5 @@ History is mostly imperative (`Fix ...`, `Refactor ...`, `Enhance ...`). Keep su
 
 
 ## Repository Hygiene Refresh
-- Refreshed and verified on 2026-05-29
-- Use existing repo state as of this workspace scan.
+- Refreshed and verified on 2026-11-23.
+- `npm run check` runs `vitest run` (`vitest ^4.1.12`) followed by `vite build`; `Dockerfile` and `nginx.conf` provide the current npm/nginx static build path (`e9d4d13`).

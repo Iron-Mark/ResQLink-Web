@@ -15,4 +15,13 @@ describe("countResolvedEventsAtSecond", () => {
     expect(countResolvedEventsAtSecond(events, 15)).toBe(1);
     expect(countResolvedEventsAtSecond(events, 20)).toBe(0);
   });
+
+  it("is repeatable and does not change the scenario input", () => {
+    const events = Object.freeze([
+      Object.freeze({ atSecond: 5, type: "status_change", newStatus: "Resolved" }),
+    ]);
+    expect(countResolvedEventsAtSecond(events, 5)).toBe(1);
+    expect(countResolvedEventsAtSecond(events, 5)).toBe(1);
+    expect(countResolvedEventsAtSecond([], 5)).toBe(0);
+  });
 });
