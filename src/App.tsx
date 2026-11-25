@@ -148,6 +148,7 @@ export default function App() {
                 ResQLink is developed for our Undergraduate Thesis, under the
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.umak.edu.ph/academics/college/ccis/"
                   className="text-green-400 font-bold"
                 >
